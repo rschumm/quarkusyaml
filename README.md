@@ -1,4 +1,21 @@
-# code-with-quarkus
+# Sample Project for a YAML Rest Server in Quarkus 
+
+explaining the bug in https://stackoverflow.com/questions/61956772/how-do-i-return-an-object-in-jax-rs-as-yaml-using-jackson-in-quarkus 
+
+
+## How to run
+
+```
+mvn test
+```
+
+This Sample Tests tries to upload a yaml file to the Server, which responds by a string. 
+
+
+
+
+
+# Quarkus Generated Doku: 
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
