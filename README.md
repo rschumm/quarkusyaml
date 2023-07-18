@@ -1,6 +1,10 @@
 # Sample Project for a YAML Rest Server in Quarkus 
 
-explaining the bug in https://stackoverflow.com/questions/61956772/how-do-i-return-an-object-in-jax-rs-as-yaml-using-jackson-in-quarkus 
+explaining the bug in Bug: 
+- https://stackoverflow.com/questions/61956772/how-do-i-return-an-object-in-jax-rs-as-yaml-using-jackson-in-quarkus 
+- https://github.com/quarkusio/quarkus/issues/34817
+
+
 
 
 ## How to run
