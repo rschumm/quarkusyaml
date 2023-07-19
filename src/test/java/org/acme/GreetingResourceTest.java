@@ -1,5 +1,6 @@
 package org.acme;
 
+import com.fasterxml.jackson.jakarta.rs.yaml.YAMLMediaTypes;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
 import io.restassured.config.EncoderConfig;
@@ -15,9 +16,6 @@ import static org.hamcrest.Matchers.containsString;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-
-import com.fasterxml.jackson.jaxrs.yaml.YAMLMediaTypes;
-
 
 @QuarkusTest
 public class GreetingResourceTest {
@@ -36,20 +34,22 @@ public class GreetingResourceTest {
     public void justTag() throws IOException {
 		String yamlPayload = new String(Files.readAllBytes(Paths.get("src/test/resources/tag.yaml")));
 
-        EncoderConfig.encoderConfig().encodeContentTypeAs(YAMLMediaTypes.APPLICATION_JACKSON_YAML, ContentType.TEXT).defaultCharsetForContentType(YAMLMediaTypes.APPLICATION_JACKSON_YAML);  
+        EncoderConfig.encoderConfig().encodeContentTypeAs(YAMLMediaTypes.APPLICATION_JACKSON_YAML, ContentType.TEXT).defaultCharsetForContentType(YAMLMediaTypes.APPLICATION_JACKSON_YAML);
 
 		Response response = 
         given()
           .config(RestAssured.config().encoderConfig(EncoderConfig.encoderConfig().encodeContentTypeAs(YAMLMediaTypes.APPLICATION_JACKSON_YAML, ContentType.TEXT)))
           .when()
+                .log().all()
           .contentType(YAMLMediaTypes.APPLICATION_JACKSON_YAML)
 		  .body(yamlPayload)
 		  .post("/hello"); 
 
           response.then()
+                  .log().all()
              .statusCode(200)
-			 .contentType(ContentType.TEXT)	 
-			 .body(containsString("one, two"));
+			 .contentType(ContentType.TEXT)
+			 .body(containsString("one,two"));
     }
 
 }

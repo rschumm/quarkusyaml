@@ -1,6 +1,8 @@
 package org.acme;
 
 import java.util.List;
+
+import com.fasterxml.jackson.jakarta.rs.yaml.YAMLMediaTypes;
 import org.jboss.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -13,8 +15,6 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-
-import com.fasterxml.jackson.jaxrs.yaml.YAMLMediaTypes;
 
 @Path("/hello")
 public class GreetingResource {
@@ -39,6 +39,7 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Transactional
     public Response upload(List<Tag> tage)  {
+        System.out.println("TAGS " + tage);
          if (tage == null){
                String message = String.format("%semtpy File? %n", "");
                return Response.status(Response.Status.BAD_REQUEST).entity(message).build();
