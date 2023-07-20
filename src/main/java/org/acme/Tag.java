@@ -2,7 +2,7 @@ package org.acme;
 
 public class Tag {
 
-  private String name;
+  public String name;
 
   public Tag(String name) {
     this.name = name;
