@@ -1,13 +1,5 @@
 package org.acme;
 
-import io.quarkus.test.junit.QuarkusTest;
-import io.restassured.RestAssured;
-import io.restassured.config.EncoderConfig;
-import io.restassured.http.ContentType;
-import io.restassured.response.Response;
-
-import org.junit.jupiter.api.Test;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.containsString;
@@ -16,7 +8,15 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import com.fasterxml.jackson.jaxrs.yaml.YAMLMediaTypes;
+import org.junit.jupiter.api.Test;
+
+import com.fasterxml.jackson.jakarta.rs.yaml.YAMLMediaTypes;
+
+import io.quarkus.test.junit.QuarkusTest;
+import io.restassured.RestAssured;
+import io.restassured.config.EncoderConfig;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 
 
 @QuarkusTest
