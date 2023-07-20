@@ -16,6 +16,12 @@ mvn test
 This Sample Tests tries to upload a yaml file to the Server, which responds by a string. 
 
 
+## Manual Test 
+
+```
+curl -i  -H "Content-Type: application/yaml" -X POST http://localhost:8080/hello --data-binary @src/test/resources/tag.yaml
+
+```
 
 
 
